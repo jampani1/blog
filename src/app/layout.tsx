@@ -26,14 +26,33 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="min-h-screen">
+    <html lang="en" className="min-h-screen" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const theme = localStorage.getItem('theme');
+                  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+                  if (theme === 'dark' || (!theme && systemPrefersDark)) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (e) {
+                  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.classList.add('dark');
+                  }
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className={`${karla.className} min-h-full px-6`}>
         {/*<Analytics />*/}
-        <Script id="theme-toggle" strategy="afterInteractive">
-          {`document.documentElement.classList.toggle("dark", localStorage.theme ===
-        "dark" || (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches))`}
-        </Script>
         <Header />
         <main className="mx-auto max-w-prose pb-4">
           {children}
@@ -42,21 +61,21 @@ export default function RootLayout({
         <footer className="mx-auto flex max-w-prose flex-col max-sm:items-start items-center gap-2 py-6 text-sm text-zinc-500 dark:text-zinc-400">
           <div className="flex items-center gap-4">
             <a
-              className="decoration-zinc-500 underline-offset-4 transition-all sm:hover:underline dark:decoration-zinc-400"
+              className="decoration-zinc-500 underline-offset-4 transition-transform sm:hover:underline dark:decoration-zinc-400"
               href="https://github.com/LukeberryPi/blog"
               target="_blank"
             >
               Code
             </a>
             <Link
-              className="decoration-zinc-500 underline-offset-4 transition-all sm:hover:underline dark:decoration-zinc-400"
+              className="decoration-zinc-500 underline-offset-4 transition-transform sm:hover:underline dark:decoration-zinc-400"
               target="_blank"
               href="/rss.xml"
             >
               RSS Feed
             </Link>
             <a
-              className="decoration-zinc-500 underline-offset-4 transition-all sm:hover:underline dark:decoration-zinc-400"
+              className="decoration-zinc-500 underline-offset-4 transition-transform sm:hover:underline dark:decoration-zinc-400"
               href="https://x.com/LukeberryPi"
               target="_blank"
             >

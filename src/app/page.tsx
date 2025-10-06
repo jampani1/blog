@@ -106,17 +106,17 @@ const ExternalLink = (link: Link) => {
       key={link.description}
       href={link.url}
       target="_blank"
-      className="group flex items-center justify-between p-4 transition-all sm:hover:bg-zinc-200 sm:dark:hover:bg-zinc-800"
+      className="group flex items-center justify-between p-4 transition-transform sm:hover:bg-zinc-100 sm:dark:hover:bg-zinc-800"
     >
       <span className="flex items-center gap-4">
         {link.icon} {link.name}
-        <span className="-translate-x-4 text-zinc-500 opacity-0 transition-all max-sm:hidden sm:group-hover:translate-x-0 sm:group-hover:opacity-100 dark:text-zinc-400">
+        <span className="text-zinc-500 opacity-0 transition-transform max-sm:hidden sm:group-hover:opacity-100 dark:text-zinc-400">
           {link.description}
         </span>
       </span>
       <ArrowUpRight
         strokeWidth={1.4}
-        className="size-5 shrink-0 text-zinc-800 transition-all sm:group-hover:rotate-45 dark:text-zinc-200"
+        className="size-5 shrink-0 text-zinc-800 transition-transform sm:group-hover:rotate-45 dark:text-zinc-200"
       />
     </a>
   );
@@ -137,7 +137,7 @@ export default function HomePage() {
       </div>
       <div className="flex justify-center gap-6 max-sm:flex-col-reverse sm:justify-between">
         <div className="flex flex-col justify-center gap-4 max-sm:items-center">
-          <div className="group -m-8 flex select-all items-center gap-3 p-8 transition-all">
+          <div className="group -m-8 flex select-all items-center gap-3 p-8 transition-transform">
             lukeberrypi@gmail.com
             <div className="inline-flex items-center gap-3">
               {/* TODO add copy email
@@ -161,7 +161,7 @@ export default function HomePage() {
           <a
             href="/luke-berry-cv.pdf"
             download="Luke-Berry-CV.pdf"
-            className="flex flex-row items-center justify-center gap-3 rounded bg-sky-300 p-4 text-sky-800 ring-1 ring-sky-500 transition-all sm:hover:bg-sky-400 dark:bg-inherit dark:text-sky-500 dark:ring-sky-500 sm:sm:dark:hover:bg-zinc-800"
+            className="flex flex-row items-center justify-center gap-3 rounded bg-sky-300 p-4 text-sky-800 ring-1 ring-sky-500 transition-transform sm:hover:bg-sky-400 dark:bg-inherit dark:text-sky-500 dark:ring-sky-500 sm:sm:dark:hover:bg-zinc-800"
           >
             <span className="text-nowrap">Download my CV</span>
             <Download strokeWidth={1.4} className="size-5 max-sm:hidden" />
