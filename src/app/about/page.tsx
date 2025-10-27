@@ -1,90 +1,69 @@
+import Image from 'next/image';
+
 export default function AboutPage() {
   return (
-    <>
-      <h1 className="mb-16 mt-4 text-center text-5xl max-sm:text-4xl">
-        About me
+    <article>
+      {/* Título da Página */}
+      <h1 className="text-3xl font-bold text-brand-dark dark:text-brand-light mb-6">
+        About Me
       </h1>
-      <article>
+      
+      {/* Container do Texto (com espaçamento entre parágrafos) */}
+      <div className="space-y-4 text-brand-dark/80 dark:text-brand-light/80">
+        
+        {/* Parágrafo 1: A Origem */}
         <p>
-          I was born in São Paulo and moved to{" "}
-          <a href="https://en.wikipedia.org/wiki/Florian%C3%B3polis">
-            Florianópolis
-          </a>{" "}
-          as a 10 year old kid. I fell in love with the nature, sport and music
-          culture of the Magical Island.
+          Born in the interior of São Paulo, I've always been drawn to online games and computers. By the end of high school, I discovered a deep fascination for biology, specifically in the field of genetics.
         </p>
+        
+        {/* Parágrafo 2: A Formação (com os links) */}
         <p>
-          In the next decade, I{" "}
-          <a href="https://open.spotify.com/artist/4ymHKBTThfeOL114lwCWPQ?si=c30897c35e404259">
-            became a singer-songwriter
-          </a>
-          , got a Karate blue belt, won back-to-back Carnavals with a samba
-          school and wasted thousands of hours playing League of Legends.
+          This led me to pursue a BSc in Biological Sciences (2020-2025) in Piracicaba at the {' '}
+          <a 
+            href="https://www.esalq.usp.br/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-blue-600 dark:text-blue-400 hover:underline"
+          >
+            University of São Paulo (USP/ESALQ)
+          </a>. 
+          Throughout my degree, I actively sought to merge these two interests. I focused on analyzing biological data to solve complex questions, culminating in my undergraduate thesis on the {' '}
+          <a 
+            href="https://bdta.abcd.usp.br/item/003258173" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-blue-600 dark:text-blue-400 hover:underline"
+          >
+            mitochondrial genome annotation of a fungus
+          </a>.
         </p>
+        
+        {/* Parágrafo 3: A Transição (A resposta para sua pergunta) */}
         <p>
-          Then I studied Economics at{" "}
-          <a href="https://en.wikipedia.org/wiki/Federal_University_of_Santa_Catarina">
-            Federal University of Santa Catarina
-          </a>
-          , mostly for my love for History and Math. I learned a lot of
-          Politics, Statistics and Macroeconomics.
+          After graduating and seeking my first professional opportunity, I decided to formally pivot and lean into the computational side of my skills. I enrolled in a <strong>Systems Analysis and Development</strong> program to build a stronger foundation in software engineering, while seeking to build upon the data analysis abilities I developed during my biology degree.
         </p>
+
+        {/* Parágrafo 4: O Presente */}
         <p>
-          But I&apos;d spent too long studying models that weren&apos;t
-          applicable in real-life. I felt disconnected from my studies which led
-          to me dropping out after 2 years.
+          This path has led me to my current role as a <strong>Data Engineering Intern at Bravium</strong>, where I can apply my analytical background to build data-focused solutions and explore my passion for technology.
         </p>
+
+        {/* Parágrafo 5: Projetos */}
         <p>
-          Then came my first contact with programming: as a Data Analyst at a
-          Tech startup. We used Microsoft Excel and Power BI to generate our
-          reports.
+          Outside of work, I'm always building. I'm developing <strong>Tatics Forge</strong> (a C# .NET & JavaScript web app), and expanding my data portfolio with projects like the <strong>Ride Price Engine</strong>, where I engineered a regression model to accurately predict Uber & Lyft ride prices using Python and Scikit-learn.
         </p>
-        <p>
-          With millions of data entries, it wasn&apos;t long until my Dell
-          notebook became unusably slow. This led me to learn Python and Pandas
-          to better deal with datasets, as well as Selenium and pyautogui.
-        </p>
-        <p>
-          I&apos;ve always been obsessed with user interfaces. My friends
-          couldn&apos;t bear me pointing out broken buttons and ugly websites
-          all the time.
-        </p>
-        <p>
-          When I found out what HTML was, I did a deep dive into the Frontend. I
-          completed FreeCodeCamp&apos;s{" "}
-          <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/">
-            Responsive Web Design
-          </a>{" "}
-          and swiftly progressed to Javascript and React soon after.
-        </p>
-        <p>
-          I became more active within the Brazilian Dev community, sharing
-          quirky UI bugs and building my projects in public such as{" "}
-          <a href="https://phived.com">phived</a> and{" "}
-          <a href="https://css2wind.com">css2wind</a>. I collaborated with
-          hundreds of developers and contributed a lot to Open Source.
-        </p>
-        <p>
-          In 2024, I traveled to Torino, Italy to visit my dad. My life flipped
-          upside down and I ended up living in Málaga for a while. After I{" "}
-          <a href="/articles/how-not-to-get-a-job-in-spain">
-            failed to get a job
-          </a>
-          , I moved to the UK and landed a job in London, where I currently
-          live.
-        </p>
-        <p>
-          If you want to get in touch, send me a DM on{" "}
-          <a href="https://x.com/lukeberrypi">X</a> or an email{" "}
-          <a href="mailto:lukeberrypi@gmail.com">lukeberrypi@gmail.com</a>.
-        </p>
-        <p>Smile, you&apos;re alive :)</p>
-        <p>
-          Best,
-          <br />
-          Luke
-        </p>
-      </article>
-    </>
-  );
+      </div>
+
+      <div className="mt-8 flex justify-center">
+        <Image
+          src="/mau-octocat.png" 
+          alt="Minha versão do Octocat - Mascote do GitHub." 
+          width={500} 
+          height={550}
+          className="rounded-lg"
+          />
+      </div>
+
+    </article>
+  )
 }

@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Karla } from "next/font/google";
-import Link from "next/link";
+import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { ScrollToTop } from "../components/scroll-to-top";
 import Script from "next/script";
 import dynamic from "next/dynamic";
 // import { Analytics } from "@vercel/analytics/next";
 
+// EDITE ISTO AQUI
 export const metadata: Metadata = {
-  title: "Luke Berry",
-  description: "Luke Berry's personal website",
-};
-
-const karla = Karla({
+  title: 'Maurício J de Souza',
+  description: 'personal site',
+}
+const robotoMono = Roboto_Mono({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "700"], // Regular (400) e Bold (700)
+  style: ["normal", "italic"], // Inclui estilos normal e itálico
 });
 
 // https://www.reddit.com/r/nextjs/comments/1bhfikg/comment/kxwj9ou/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="min-h-screen" suppressHydrationWarning>
+    <html lang="en" className="min-h-screen bg-page-light dark:bg-page-dark" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -51,40 +51,19 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${karla.className} min-h-full px-6`}>
-        {/*<Analytics />*/}
+      <body className={`${robotoMono.className} min-h-full px-6`}>
+      {/*<Analytics />*/}
         <Header />
         <main className="mx-auto max-w-prose pb-4">
           {children}
           <ScrollToTop />
         </main>
-        <footer className="mx-auto flex max-w-prose flex-col max-sm:items-start items-center gap-2 py-6 text-sm text-zinc-500 dark:text-zinc-400">
-          <div className="flex items-center gap-4">
-            <a
-              className="decoration-zinc-500 underline-offset-4 transition-transform sm:hover:underline dark:decoration-zinc-400"
-              href="https://github.com/LukeberryPi/blog"
-              target="_blank"
-            >
-              Code
-            </a>
-            <Link
-              className="decoration-zinc-500 underline-offset-4 transition-transform sm:hover:underline dark:decoration-zinc-400"
-              target="_blank"
-              href="/rss.xml"
-            >
-              RSS Feed
-            </Link>
-            <a
-              className="decoration-zinc-500 underline-offset-4 transition-transform sm:hover:underline dark:decoration-zinc-400"
-              href="https://x.com/LukeberryPi"
-              target="_blank"
-            >
-              @LukeberryPi
-            </a>
+        <footer className="w-full py-8 mt-12 border-t border-brand-dark/20 dark:border-brand-light/20">
+          <div className="max-w-3xl mx-auto px-4 text-center">
+            <p className="text-brand-dark/70 dark:text-brand-light/70">
+            © {new Date().getFullYear()} mausao. Todos os direitos reservados.
+          </p>
           </div>
-          <blockquote className="text-zinc-800 dark:text-zinc-300">
-            Smile, you&apos;re alive :)
-          </blockquote>
         </footer>
       </body>
     </html>

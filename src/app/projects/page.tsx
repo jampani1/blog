@@ -1,136 +1,73 @@
-import { GitBranch, Globe } from "lucide-react";
-import Image from "next/image";
-import { ReactNode } from "react";
+// src/app/projects/page.tsx (Preenchido com dados do GitHub)
 
-interface Project {
-  name: string;
+// Um componente reutilizável para cada "Card de Projeto"
+function ProjectCard({ title, description, stack, githubLink }: {
+  title: string;
   description: string;
-  imageUrl: string;
-  githubUrl: string;
-  url: string;
-  technologies: ReactNode;
-}
-
-const projects: Project[] = [
-  {
-    name: "css2wind",
-    description:
-      "Learn TailwindCSS by playing a minigame: there are eight CSS properties that you must translate to the equivalent TailwindCSS utility. Bet you can't get 8/8.",
-    url: "https://css2wind.com",
-    imageUrl: "/projects/css2wind.png",
-    githubUrl: "https://github.com/LukeberryPi/css2wind",
-    technologies: (
-      <div className="flex items-center gap-x-3">
-        <span className="rounded-full bg-[#007ACC] px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-zinc-200 ring-1 dark:ring-zinc-500 ring-zinc-600">
-          TypeScript
-        </span>
-        <span className="rounded-full bg-[#38BDF9] px-2.5 py-0.5 text-sm text-zinc-950 dark:bg-inherit dark:text-zinc-200 ring-1 dark:ring-zinc-500 ring-zinc-600">
-          TailwindCSS
-        </span>
-        <span className="rounded-full bg-black px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-zinc-200 ring-1 dark:ring-zinc-500 ring-zinc-600">
-          Next.js
-        </span>
-      </div>
-    ),
-  },
-  {
-    name: "King's Cross Cinema Schedule",
-    description:
-      "A simpler way to visualize the movies in the Everyman in the Canal 2025 in London. I watched Mean Girls and it was amazing.",
-    url: "https://kings-cross-cinema-schedule-2025.vercel.app/",
-    imageUrl: "/projects/cinema-schedule.png",
-    githubUrl: "https://github.com/LukeberryPi/kings-cross-cinema-website",
-    technologies: (
-      <div className="flex items-center gap-x-3">
-        <span className="rounded-full bg-[#FF5D01] px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-inherit dark:text-inherit ring-1 dark:ring-zinc-500 ring-zinc-600">
-          Astro
-        </span>
-        <span className="rounded-full bg-[#38BDF9] px-2.5 py-0.5 text-sm text-zinc-950 dark:bg-inherit dark:text-inherit ring-1 dark:ring-zinc-500 ring-zinc-600">
-          Tailwind
-        </span>
-        <span className="rounded-full bg-black px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-none ring-1 dark:ring-zinc-500 ring-zinc-600">
-          Vercel
-        </span>
-      </div>
-    ),
-  },
-  {
-    name: "phived",
-    description:
-      "Stop procrastinating by dealing with five tasks at a time. If you want to add more tasks you need to resolve a previous one. Surprisingly effective.",
-    url: "https://phived.com",
-    imageUrl: "/projects/phived.png",
-    githubUrl: "https://github.com/LukeberryPi/phived",
-    technologies: (
-      <div className="flex items-center gap-x-3">
-        <span className="rounded-full bg-[#00D8FE] px-2.5 py-0.5 text-sm text-zinc-950 dark:bg-inherit dark:text-inherit ring-1 dark:ring-zinc-500 ring-zinc-600">
-          React
-        </span>
-        <span className="rounded-full bg-[#38BDF9] px-2.5 py-0.5 text-sm text-zinc-950 dark:bg-inherit dark:text-inherit ring-1 dark:ring-zinc-500 ring-zinc-600">
-          TailwindCSS
-        </span>
-        <span className="rounded-full bg-gradient-to-r from-[#926AFE] to-[#49C7FF] px-2.5 py-0.5 text-sm text-zinc-100 dark:bg-none ring-1 dark:ring-zinc-500 ring-zinc-600">
-          Vite
-        </span>
-      </div>
-    ),
-  },
-];
-
-function ProjectCard({
-  name,
-  description,
-  imageUrl,
-  githubUrl,
-  url,
-  technologies,
-}: Project) {
+  stack: string;
+  githubLink: string;
+}) {
   return (
-    <div className="flex-col divide-y divide-zinc-400 overflow-hidden rounded ring-1 dark:zinc-500 dark:ring-zinc-500 ring-zinc-600">
-      <div className="flex items-center justify-between gap-4 p-4 max-sm:flex-col">
-        <h2 className="text-xl">{name}</h2>
-        {technologies}
-      </div>
-      <div>
-        <p className="p-4">{description}</p>
-      </div>
-      <Image
-        src={imageUrl}
-        width={1200}
-        height={630}
-        alt="Logo for css2wind website"
-      />
-      <div className="flex w-full justify-between divide-x divide-zinc-400 dark:divide-zinc-500">
-        <a
-          href={url}
-          target="_blank"
-          className="flex grow items-center justify-center gap-2 py-4 transition-transform sm:hover:bg-zinc-100 sm:dark:hover:bg-zinc-800"
-        >
-          <Globe strokeWidth={1.4} className="size-5" /> Visit website
-        </a>
-        <a
-          href={githubUrl}
-          target="_blank"
-          className="flex grow items-center justify-center gap-2 py-4 transition-transform sm:hover:bg-zinc-100 sm:dark:hover:bg-zinc-800"
-        >
-          <GitBranch strokeWidth={1.4} className="size-5" /> View code
-        </a>
-      </div>
+    <div className="w-full bg-brand-light dark:bg-brand-dark rounded-lg p-6">
+      {/* Título do Projeto */}
+      <h2 className="text-2xl font-bold text-brand-dark dark:text-brand-light">
+        {title}
+      </h2>
+      
+      {/* Descrição */}
+      <p className="mt-2 text-brand-dark/80 dark:text-brand-light/80">
+        {description}
+      </p>
+      
+      {/* Tecnologias Usadas */}
+      <p className="mt-4 text-sm font-medium text-brand-dark dark:text-brand-light">
+        Tech Stack: {stack}
+      </p>
+      
+      {/* Link para o GitHub */}
+      <a 
+        href={githubLink} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="text-blue-600 dark:text-blue-400 hover:underline mt-4 inline-block"
+      >
+        View on GitHub
+      </a>
     </div>
-  );
+  )
 }
 
+// A Página Principal de Projetos
 export default function ProjectsPage() {
   return (
-    <>
-      <h1 className="mb-16 mt-4 text-center text-5xl max-sm:text-4xl">
+    <section>
+      {/* Título da Página */}
+      <h1 className="text-3xl font-bold text-brand-dark dark:text-brand-light mb-6">
         Projects
       </h1>
-      <div className="space-y-20">
-        {projects.map((project) => (
-          <ProjectCard key={project.url} {...project} />
-        ))}
+      
+      {/* Lista de Cards (com espaçamento) */}
+      <div className="space-y-8">
+        
+        {/* PROJETO 1: RIDE PRICE ENGINE */}
+        <ProjectCard
+          title="Ride Price Engine (Uber & Lyft)"
+          description="A complete Machine Learning pipeline to predict ride prices for Uber & Lyft, using a public Boston dataset. The project involved exploratory data analysis, feature engineering, and a comparison of multiple regression models to find the most accurate solution."
+          stack="Python, Pandas, Scikit-learn, Matplotlib, Seaborn, Joblib"
+          githubLink="https://github.com/jampani1/ride-price-engine"
+        />
+        
+        {/* PROJETO 2: TATICS FORGE */}
+        <ProjectCard
+          title="Tatics Forge (Merge Tactics)"
+          description="A full-stack theory-crafting website for the Merge Tactics community, featuring a unit database, merge simulator, and user-created builds."
+          stack="C# (.NET API), JavaScript, HTML/CSS, SQL Server"
+          githubLink="[Seu link do GitHub para o Tatics Forge]"
+        />
+
+        {/* Adicione mais ProjectCard aqui no futuro (ex: seu TCC) */}
+        
       </div>
-    </>
-  );
+    </section>
+  )
 }
