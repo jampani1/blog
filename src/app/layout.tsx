@@ -58,13 +58,44 @@ export default function RootLayout({
           {children}
           <ScrollToTop />
         </main>
-        <footer className="w-full py-8 mt-12 border-t border-brand-dark/20 dark:border-brand-light/20">
-          <div className="max-w-3xl mx-auto px-4 text-center">
-            <p className="text-brand-dark/70 dark:text-brand-light/70">
-            © {new Date().getFullYear()} mausao. Todos os direitos reservados.
-          </p>
+        {/* ======================= NOVO RODAPÉ ======================= */}
+        <footer className="w-full py-8 mt-12">
+          <div className="max-w-3xl mx-auto px-4 flex flex-col items-center space-y-3">
+            
+            <p className="text-brand-dark dark:text-brand-light text-sm font-semibold">
+              Passionate about code. Genetic and source.
+            </p>
+
+            <div className="flex items-center space-x-4 text-sm">
+              <a 
+                href="https://github.com/jampani1" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-orange-600 dark:text-orange-400 hover:underline"
+              >
+                GitHub
+              </a>
+              <span className="text-brand-dark/70 dark:text-brand-light/70">|</span>
+              <a 
+                href="https://linkedin.com/in/mauriciojampani"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-orange-600 dark:text-orange-400 hover:underline"
+              >
+                LinkedIn
+              </a>
+            </div>
+
+            <p className="text-brand-dark/70 dark:text-brand-light/70 text-sm">
+              It's all just logic :)
+            </p>
+
+            <p className="text-brand-dark/50 dark:text-brand-light/50 text-xs">
+              © {new Date().getFullYear()} mausao. Todos os direitos reservados.
+            </p>
           </div>
         </footer>
+        {/* ========================================================== */}
       </body>
     </html>
   );
