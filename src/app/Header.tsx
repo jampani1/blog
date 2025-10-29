@@ -42,7 +42,7 @@ export default function Header() {
 
   return (
     <header className="mx-auto max-w-prose py-8 max-sm:pt-4">
-      <nav className="flex items-center justify-between max-sm:flex-col max-sm:gap-6">
+      <nav className="flex items-start justify-between max-sm:flex-col max-sm:gap-6">
         <Link
           className={`group relative -m-12 -my-2 -mr-4 flex items-center rounded py-2 pl-12 pr-4 ${isHome ? "ring-0" : "ring-1"} ring-sky-500 ring-opacity-0 transition-transform max-sm:text-center sm:hover:ring-opacity-100 dark:ring-sky-600 dark:ring-opacity-0`}
           href="/"
@@ -102,6 +102,19 @@ export default function Header() {
               className="absolute left-1/2 mt-1 hidden size-2 fill-sky-500 text-zinc-800 group-aria-[current=page]:block dark:fill-sky-600 dark:text-transparent"
             />
           </Link>
+
+          <Link
+            className="group relative rounded px-2 py-px sm:hover:ring-1 ring-sky-500 transition-transform dark:ring-sky-600 dark:ring-opacity-0"
+            href="/now"
+            aria-label="View now page"
+            aria-current={path === "/now" ? "page" : undefined}
+          >
+            /now
+              <Triangle
+                aria-hidden="true"
+                className="absolute left-1/2 mt-1 hidden size-2 fill-sky-500 text-zinc-800 group-aria-[current=page]:block dark:fill-sky-600 dark:text-transparent"
+              />
+            </Link>
         </div>
       </nav>
     </header>

@@ -72,3 +72,13 @@
     @apply text-zinc-950 underline decoration-sky-500 underline-offset-4 dark:text-zinc-200 dark:decoration-sky-600;
   }
 }
+
+/* Cor padrão (Modo Claro) */
+:root {
+  --cursor-color: #000000; /* Preto */
+}
+
+/* Cor para o Modo Escuro */
+.dark {
+  --cursor-color: #FFFFFF; /* Branco */
+}
