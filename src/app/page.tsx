@@ -1,5 +1,3 @@
-// src/app/page.tsx (COMPLETO E REFINADO)
-
 import Weather from '../components/Weather';
 import GitHubActivity from '../components/GitHubActivity';
 import BuilderHelpModal from '../components/BuilderHelpModal';

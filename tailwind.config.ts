@@ -6,9 +6,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'page-light': '#fffbeb',  // Amber 50
+        'page-light': '#fef3c7',  // Amber 50
         'page-dark': '#451a03',   // Amber 950
-        'brand-light': '#fef3c7', // Amber 100
+        'brand-light': '#fffbeb', // Amber 100
         'brand-dark': '#78350f',  // Amber 900
       }
     },

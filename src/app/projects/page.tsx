@@ -1,5 +1,3 @@
-// src/app/projects/page.tsx (Preenchido com dados do GitHub)
-
 // Um componente reutilizável para cada "Card de Projeto"
 function ProjectCard({ title, description, stack, githubLink }: {
   title: string;
@@ -9,22 +7,15 @@ function ProjectCard({ title, description, stack, githubLink }: {
 }) {
   return (
     <div className="w-full bg-brand-light dark:bg-brand-dark rounded-lg p-6">
-      {/* Título do Projeto */}
       <h2 className="text-2xl font-bold text-brand-dark dark:text-brand-light">
         {title}
       </h2>
-      
-      {/* Descrição */}
       <p className="mt-2 text-brand-dark/80 dark:text-brand-light/80">
         {description}
       </p>
-      
-      {/* Tecnologias Usadas */}
       <p className="mt-4 text-sm font-medium text-brand-dark dark:text-brand-light">
         Tech Stack: {stack}
       </p>
-      
-      {/* Link para o GitHub */}
       <a 
         href={githubLink} 
         target="_blank" 
@@ -57,13 +48,7 @@ export default function ProjectsPage() {
           githubLink="https://github.com/jampani1/ride-price-engine"
         />
         
-        {/* PROJETO 2: TATICS FORGE */}
-        <ProjectCard
-          title="Tatics Forge (Merge Tactics)"
-          description="A full-stack theory-crafting website for the Merge Tactics community, featuring a unit database, merge simulator, and user-created builds."
-          stack="C# (.NET API), JavaScript, HTML/CSS, SQL Server"
-          githubLink="[Seu link do GitHub para o Tatics Forge]"
-        />
+        {/* adicionar aqui o projeto do ps da bravium? */}
 
         {/* Adicione mais ProjectCard aqui no futuro (ex: seu TCC) */}
         
